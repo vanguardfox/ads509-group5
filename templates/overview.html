@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Model Overview</title>
+</head>
+<body>
+    <h1>Overview of Topics</h1>
+    
+    {% for topic, words in topics.items() %}
+        {% if '_plot' not in topic %}
+            <h2>{{ topic }}</h2>
+            <p>Top words: {{ words }}</p>
+            <img src="data:image/png;base64,{{ topics[topic+'_plot'] }}" alt="Topic Word Bar Plot">
+        {% endif %}
+    {% endfor %}
+    
+</body>
+</html>

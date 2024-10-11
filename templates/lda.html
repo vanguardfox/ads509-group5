@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Modeling Overview</title>
+</head>
+<body>
+    <h1>Latent Dirichlet Allocation (LDA) Topic Overview</h1>
+    
+    <!-- Display topics and top words -->
+    {% for topic, keywords in topics.items() %}
+    <h2>{{ topic }}</h2>
+    <p>Top words: {{ keywords }}</p>
+    {% endfor %}
+</body>
+</html>
