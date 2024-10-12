@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FIRE Number Analyzer{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/overview">Topic Overview</a> |
+        </nav>
+
+        <h1>{% block header %}FIRE Number Analyzer{% endblock %}</h1>
+
+        <div class="content">
+            {% block content %}
+            <!-- Content of each page will go here -->
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

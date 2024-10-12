@@ -1,13 +1,18 @@
-<!-- templates/sentiment.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentiment Analysis</title>
-</head>
-<body>
-    <h1>Sentiment Analysis Results</h1>
-    <!-- You can display results of sentiment analysis here -->
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Sentiment Analysis{% endblock %}
+
+{% block header %}Sentiment Analysis Results{% endblock %}
+
+{% block content %}
+<h2>Sentiment Analysis Results</h2>
+<p><strong>Input Text:</strong> {{ input_text }}</p>
+<p><strong>Sentiment Scores:</strong></p>
+<ul>
+    <li>Positive: {{ sentiment_scores['pos'] }}</li>
+    <li>Neutral: {{ sentiment_scores['neu'] }}</li>
+    <li>Negative: {{ sentiment_scores['neg'] }}</li>
+    <li>Overall Compound Score: {{ sentiment_scores['compound'] }}</li>
+</ul>
+{% endblock %}
+
