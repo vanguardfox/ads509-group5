@@ -1,31 +1,37 @@
 {% extends "base.html" %}
 
-{% block title %}FIRE Number Analyzer – Text Classification{% endblock %}
+{% block title %}FIRE Number Analyzer | Text Classification and Sentiment Analysis{% endblock %}
 
 {% block header %}Welcome to the FIRE Number Analyzer!{% endblock %}
 
 {% block content %}
-<h2>Enter Text for Topic and Sentiment Analysis</h2>
+<h2>Enter Text for Topic Classification and Sentiment Analysis</h2>
 <form action="/" method="POST">
     <label for="text">Input Text:</label><br>
     <textarea id="text" name="text" rows="4" cols="50"></textarea><br><br>
     <button type="submit" class="btn btn-success">Analyze Text</button>
 </form>
 
-<!-- Section to display results after form submission -->
 {% if input_text %}
 <div class="results">
     <h2>Results</h2>
     <p><strong>Input Text:</strong> {{ input_text }}</p>
     <p><strong>Predicted Topic:</strong> {{ predicted_topic }}</p>
-    <p><strong>Sentiment Scores:</strong></p>
+    
+    <h3>Top Words Responsible for the Topic Prediction:</h3>
     <ul>
-        <li>Positive: {{ sentiment_scores['pos'] }}</li>
-        <li>Neutral: {{ sentiment_scores['neu'] }}</li>
-        <li>Negative: {{ sentiment_scores['neg'] }}</li>
-        <li>Overall Compound Score: {{ sentiment_scores['compound'] }}</li>
+        {% for word in top_words %}
+        <li>{{ word }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Sentiment Scores:</h3>
+    <ul>
+        <li><strong>Positive:</strong> {{ sentiment_scores['pos'] }}</li>
+        <li><strong>Neutral:</strong> {{ sentiment_scores['neu'] }}</li>
+        <li><strong>Negative:</strong> {{ sentiment_scores['neg'] }}</li>
+        <li><strong>Overall Compound Score:</strong> {{ sentiment_scores['compound'] }}</li>
     </ul>
 </div>
 {% endif %}
 {% endblock %}
-
